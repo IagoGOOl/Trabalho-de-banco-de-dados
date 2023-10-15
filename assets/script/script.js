@@ -29,13 +29,18 @@ function addMarker(evt) {
 }
 
 function salvar() {
+	let select = document.getElementById('tipo');
+	const tipo = select.options[select.selectedIndex].value;
 	const obj = {
-		nome: document.getElementById('nome').value,
+		titulo: document.getElementById('titulo').value,
+		tipo: tipo,
+		data: document.getElementById('data').value,
+		hora: document.getElementById('hora').value,
 		lat: marker.getPosition().lat(),
 		lng: marker.getPosition().lng(),
 	};
 
-	fetch('http://localhost:3000/pontos', {
+	fetch('http://localhost:3000/ocorrencia', {
 		method: 'POST',
 		headers: {
 			Accept: 'application/json',
@@ -47,4 +52,22 @@ function salvar() {
 			alert('Salvo com sucesso');
 		})
 		.catch((error) => alert('Falha ao salvar!'));
+}
+
+function lista() {
+	fetch('http://localhost:3000/resgata')
+		.then((res) => res.json())
+		.then((ponto) => {
+			marker = new google.maps.Marker({ map: map });
+			ponto.forEach((location) => {
+				if (location.geometria) {
+					marker.setPosition(
+						new google.maps.LatLng(
+							location.geometria.coordinates[0],
+							location.geometria.coordinates[1]
+						)
+					);
+				}
+			});
+		});
 }
