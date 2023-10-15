@@ -14,8 +14,8 @@ async function syncModel() {
 
 syncModel();
 
-app.post('/ocorrencia', controller);
-app.get('/resgata', controller);
+app.post('/ocorrencia', controller.criaOcorrencia);
+app.get('/resgata', controller.listarOcorrencia);
 
 app.listen(3000, () => {
 	console.log('Server On');

@@ -1,0 +1,36 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: none;
+	box-sizing: border-box;
+	font-family: Roboto;
+}
+
+.body-color {
+	width: 100vw;
+	height: 100vh;
+	background-color: #1f1e1e;
+	margin: 0;
+}
+
+.navbar {
+	background-color: rgb(203, 198, 198) !important;
+	padding: 25px 0;
+}
+
+#navbar-img {
+	height: 30px;
+	top: 15px;
+	padding-left: 10px;
+}
+
+@media (max-width: 768px) {
+	#navbarSupportedContent ul * {
+		width: 100%;
+		text-align: center;
+	}
+}
+
+#navbar-img {
+	height: 70px;
+}
