@@ -47,15 +47,17 @@
 						<li class="nav-item">
 							<button
 								class="btn btn-add"
-								onclick="salvar()">
+								onclick="salvar()"
+							>
 								Adicionar
 							</button>
 						</li>
 						<li class="nav-item">
 							<button
-							class=" btn btn-lista"
-							onclick="lista()">
-							Lista Ocorrencia
+								class=" btn btn-lista"
+								onclick="lista()"
+							>
+							Listar Ocorrencias
 						</button>
 						</li>
 					</ul>
@@ -73,22 +75,25 @@
 				</div>
 			</div>
 		</nav>
-		<div class="body-color" id="map">
 
-		  </div>
-			<div class="container"></div>
-			<div>
+		<div class="body-color" id="map"></div>
+		<!-- <div class="container">
+
+		</div> -->
+
+		<div class="w-100 d-flex justify-content-center">
+			<div class="form-width">
 				<div>
 					<label for="titulo" class="form-label">Título da ocorrência</label>
-					<input type="text" id="titulo" class="form-control" /></div>
+					<input type="text" id="titulo" class="form-control" />
 				</div>
 				<div>
 					<label for="tipo" class="form-label">Tipo da ocorrência</label>
 					<select id="tipo" class="form-select">
-					<option value="assalto">assalto</option>
-					<option value="furto">furto</option>
-					<option value="homicidio">homicidio</option>
-					<option value="latrocinio">latrocinio</option>
+						<option value="assalto">assalto</option>
+						<option value="furto">furto</option>
+						<option value="homicidio">homicidio</option>
+						<option value="latrocinio">latrocinio</option>
 					</select>
 				</div>
 				<div>
@@ -101,7 +106,7 @@
 				</div>
 			</div>
 		</div>
-		<!-- Modal add/edit -->
+
 		<!-- Footer -->
 		<footer class="text-center text-lg-start bg-light text-muted">
 			<!-- Section: Social media -->
@@ -132,7 +137,7 @@
 			<!-- Section: Social media -->
 
 			<!-- Section: Links  -->
-			<section class="">
+			<section>
 				<div class="container text-center text-md-start mt-5">
 					<!-- Grid row -->
 					<div class="row mt-3">
@@ -225,11 +230,11 @@
 							<p><i class="fas fa-print me-3"></i> Patos</p>
 							<p><i class="fas fa-print me-3"></i> Sousa</p>
 						</div>
-					<div>
-						<p class="d-flex justify-content-end"><i></i>
-							Governo da Paraiba
-						</p
-					</div>
+						<div>
+							<p class="d-flex justify-content-end"><i></i>
+								Governo da Paraiba
+							</p>
+						</div>
 						<div class="d-flex justify-content-end">
 							<img
 								src="../assets/imagens/254346.svg"
@@ -254,6 +259,83 @@
 			<!-- Copyright -->
 		</footer>
 		<!-- Footer -->
+
+		<div class="modal" tabindex="-1" role="dialog" id="modalLerOcorrencia">
+			<div class="modal-dialog" role="document">
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <h5 class="modal-title">Modal title</h5>
+				  <button type="button" class="close" onclick="closeModal('modalLerOcorrencia')">
+					<span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+				<div class="modal-body">
+					<div class="d-flex gap-4">
+						<p>Titulo:</p>
+						<p id="dados-titulo"></p>
+					</div>
+					<div class="d-flex gap-4">
+						<p>Tipo: </p>
+						<p id="dados-tipo"></p>
+					</div>
+					<div class="d-flex gap-4">
+						<p>Data:</p>
+						<p id="dados-data"></p>
+					</div>
+					<div class="d-flex gap-4">
+						<p>Hora:</p>
+						<p id="dados-hora"></p>
+					</div>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn btn-secondary" onclick="closeModal('modalLerOcorrencia')">OK</button>
+				</div>
+			  </div>
+			</div>
+		</div>
+
+  
+		<!-- Modal -->
+		<!-- <div class="modal fade" id="modalNovaOcorrencia" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Registro de nova ocorrencia</h5>
+					<button type="button" class="close" onclick="closeModal('modalNovaOcorrencia')">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					</div>
+					<div class="modal-body">
+						<div>
+							<label for="titulo" class="form-label">Título da ocorrência</label>
+							<input type="text" class="form-control" />
+						</div>
+						<div>
+							<label for="tipo" class="form-label">Tipo da ocorrência</label>
+							<select id="tipo" class="form-select">
+								<option value="assalto">assalto</option>
+								<option value="furto">furto</option>
+								<option value="homicidio">homicidio</option>
+								<option value="latrocinio">latrocinio</option>
+							</select>
+						</div>
+						<div>
+							<label for="data" class="form-label">Data da ocorrência</label>
+							<input type="date" id="data" class="form-control" />
+						</div>
+						<div>
+							<label for="hora"  class="form-label">Hora da ocorrência</label>
+							<input type="time" id="hora"class="form-control" />
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" onclick="closeModal('modalNovaOcorrencia')">Close</button>
+						<button type="button" class="btn btn-primary" onclick="salvar()">Save</button>
+					</div>
+				</div>
+			</div>
+		</div> -->
+
 		<script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
 		defer
